@@ -1,0 +1,11 @@
+{
+    "name": "Analizador",
+    "version": "1.0.0",
+    "description": "Proyecto 1 de Lenguajes Formales y de Programacion",
+    "main": "index.js",
+    "scripts":{
+        "test": "echo \"Error: no text specified\" && exit"
+    },
+    "author": "Denilson de Leon",
+    "licence": "ISC"
+}
