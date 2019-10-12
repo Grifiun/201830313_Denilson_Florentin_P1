@@ -55,6 +55,10 @@ function verificarLinea(numLinea, cadenaNLinea) {
       cad.innerHTML = cad.innerHTML + "<p>" + arregloCadenaSinEspacio[i] + "</p>";
       tipo.innerHTML = tipo.innerHTML + "<p>" + tipoAux + "</p>";
     }
+    else{
+        tipoAux = afd(arregloCadenaSinEspacio[i]);
+        console.log(tipoAux);
+    }
   }
 }
 /**
@@ -110,4 +114,112 @@ function compararCadenas(cadena1, num) {
   }
   
   return res;
+}
+
+function afd(cadenaAFD){
+  
+  var inicio = 0;
+  var finalizarIdentificador = 1;
+  var finalizarNumero = 2;
+  var estadoActual = inicio;
+
+  var finLectura = false;
+  var contador = 0;
+
+  while(finLectura == false){
+    if(contador > (cadenaAFD.length - 1)){
+      finLectura = true;
+      break;
+    }
+
+    if(estadoActual == 0){
+      if(isLetra(cadena[contador]))//es una letra
+        {
+          estadoActual = 1;
+        }
+        if(isDigito(cadena[contador]))//es una digito
+        {
+          estadoActual = 2;
+        }
+        contador++;
+        continue;
+    }
+    if(estadoActual == 1){
+     if(isLetra(cadena[contador]))//es una letra
+        {
+          estadoActual = 1;
+        }
+        if(isDigito(cadena[contador]))//es una digito
+        {
+          estadoActual = 1;
+        }
+        contador++;
+        continue;
+    }  
+    if(estadoActual == 2){
+      if(isDigito(cadena[contador]))//es una digito
+        {
+          estadoActual = 2;
+        }
+        if(isPunto(cadena[contador]))//es una si es un .
+        {
+          estadoActual = 3;
+        }
+        contador++;
+        continue;
+    }  
+    if(estadoActual == 3){
+      if(isDigito(cadena[contador]))//es una digito)
+        {
+          estadoActual = 2;
+        }
+        contador++;
+        continue;
+    }   
+  
+  }
+  //Una vez termina el ciclo verificamos el estado final
+  console.log(estadoActual);
+  if(estadoActual == finalizarIdentificador){
+  console.log("identificador");
+  return "identificador";
+  }
+  if(estadoActual == finalizarNumero){
+  console.log("num");
+  return "numero";
+  }
+}
+
+function isLetra(caracter){
+  var estado = false;
+  
+  var letras = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", 
+      "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];  
+        for(var i = 0; i < letras.length; i++){
+        if(caracter === letras[i]){
+          estado = true;
+        }
+      }
+   
+  return estado;
+}
+
+function isDigito(caracter){
+  var estado = false;  
+  var nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];  
+        for(var i = 0; i < nums.length; i++){
+        if(caracter === nums[i]){
+          estado = true;
+        }
+      }
+   
+  return estado;
+}
+
+function isPunto(caracter){
+  if(caracter === "."){
+    return true;
+  }else{
+    return false;
+  }
 }
