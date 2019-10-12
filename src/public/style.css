@@ -26,5 +26,6 @@ table{
 }
 
 ul{
-   display: inline-block;    
+   display: inline-block;
+   margin: 0px 50px;    
 }
