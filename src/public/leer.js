@@ -48,16 +48,15 @@ function verificarLinea(numLinea, cadenaNLinea) {
         iDo = 6;
       }
     }while(iDo !=6);
-    
+    if(tipoAux == " "){
+      tipoAux = afd(arregloCadenaSinEspacio[i]);
+    }  
+
     if(tipoAux != " "){//Imprimimos los resultados en las listas del html
       fil.innerHTML = fil.innerHTML + "<p>" + numLinea +  "</p>";
       col.innerHTML = col.innerHTML + "<p>" + (i + 1) + "</p>";
       cad.innerHTML = cad.innerHTML + "<p>" + arregloCadenaSinEspacio[i] + "</p>";
       tipo.innerHTML = tipo.innerHTML + "<p>" + tipoAux + "</p>";
-    }
-    else{
-        tipoAux = afd(arregloCadenaSinEspacio[i]);
-        console.log(tipoAux);
     }
   }
 }
@@ -128,48 +127,50 @@ function afd(cadenaAFD){
 
   while(finLectura == false){
     if(contador > (cadenaAFD.length - 1)){
+      console.log(contador);
       finLectura = true;
       break;
     }
-
-    if(estadoActual == 0){
-      if(isLetra(cadena[contador]))//es una letra
+    
+    if(estadoActual == '0'){
+      if(isLetra(cadenaAFD[contador]))//es una letra
         {
           estadoActual = 1;
         }
-        if(isDigito(cadena[contador]))//es una digito
+        if(isDigito(cadenaAFD[contador]))//es una digito
         {
           estadoActual = 2;
         }
         contador++;
         continue;
     }
-    if(estadoActual == 1){
-     if(isLetra(cadena[contador]))//es una letra
+    if(estadoActual == '1'){
+     if(isLetra(cadenaAFD[contador]))//es una letra
         {
           estadoActual = 1;
         }
-        if(isDigito(cadena[contador]))//es una digito
+        if(isDigito(cadenaAFD[contador]))//es una digito
         {
           estadoActual = 1;
         }
         contador++;
         continue;
     }  
-    if(estadoActual == 2){
-      if(isDigito(cadena[contador]))//es una digito
+    if(estadoActual == '2'){
+      if(isDigito(cadenaAFD[contador]))//es una digito
         {
           estadoActual = 2;
         }
-        if(isPunto(cadena[contador]))//es una si es un .
+        if(isPunto(cadenaAFD[contador]))//es una si es un .
         {
           estadoActual = 3;
         }
         contador++;
         continue;
     }  
-    if(estadoActual == 3){
-      if(isDigito(cadena[contador]))//es una digito)
+    if(estadoActual == '3'){
+      
+      if(isDigito(cadenaAFD[contador]))//es una digito)
         {
           estadoActual = 2;
         }
@@ -184,9 +185,11 @@ function afd(cadenaAFD){
   console.log("identificador");
   return "identificador";
   }
-  if(estadoActual == finalizarNumero){
+  else if(estadoActual == finalizarNumero){
   console.log("num");
   return "numero";
+  }else{
+    return "error";
   }
 }
 
