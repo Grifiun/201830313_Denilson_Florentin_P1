@@ -10,6 +10,7 @@ var palabrasReservadas = ["palabra reservada", "variable", "entero", "decimal", 
 var agrupacion = ["agrupacion", "(", ")", "{", "}"];
 var operador = ["operador", "+", "-", "*", "/", "%", "=", "==", "<", ">", ">=", "<="];
 var booleano = ["boolean", "verdadero", "falso"];
+var signo = ['signo',';', '"'];
 
 //Funcion encargada de verificar todo el texto
 function verificar() {
@@ -44,9 +45,9 @@ function verificarLinea(numLinea, cadenaNLinea) {
       var tipoAux = compararCadenas(arregloCadenaSinEspacio[i], iDo);  //comparamos la cadena/token con el arreglo definido al inicio (depende del valor de iDo)
       iDo++;
       if(tipoAux != " "){//si al comparar el token con las palabras reservadas nos retorna un valor distinto del vacio se termina el ciclo
-        iDo = 5;
+        iDo = 6;
       }
-    }while(iDo !=5);
+    }while(iDo !=6);
     
     if(tipoAux != " "){//Imprimimos los resultados en las listas del html
       fil.innerHTML = fil.innerHTML + "<p>" + numLinea +  "</p>";
@@ -94,6 +95,13 @@ function compararCadenas(cadena1, num) {
       for(var i = 1; i < booleano.length; i++){
         if(cadena1 == booleano[i]){
           res = booleano[0];
+        }
+      }
+      break;
+    case 5:
+      for(var i = 1; i < signo.length; i++){
+        if(cadena1 == signo[i]){
+          res = signo[0];
         }
       }
       break;
