@@ -2,8 +2,6 @@
 //Y la otra encargada de realizar el evento en caso de ser presionado
 const respuesta = document.querySelector('#contenido-archivo');
 const boton = document.querySelector('#btnReconocer');
-const urlp = "http://localhost:3000/analizador";
-
 // Enviar el analizador con Axios
 const sendData = () => {
     console.log('funcional');
