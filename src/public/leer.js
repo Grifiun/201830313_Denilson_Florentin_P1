@@ -1,4 +1,5 @@
-var express = require('express');
-var multer = require('multer')({
-   dest: 'public/archivos'
-})
+var contenido = document.getElementById('contenido-archivo');
+var contenido2 = document.getElementById('contenido-archivo2');
+function verificar() {
+  
+}

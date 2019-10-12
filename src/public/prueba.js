@@ -8,7 +8,6 @@ console.log(label1);
 const respuesta = document.querySelector('#respuesta');
 
 
-
 const url = "http://172.16.6.136:3000/users";
 const urlp = "http://localhost:3000/pusers";
 
@@ -42,52 +41,7 @@ const sendData = () => {
         .catch(error => {
             console.log(error);
         });
-};
-
-
-
 
 getButton.addEventListener('click', getData);
-
 postButton.addEventListener('click', sendData);
 
-
-
-/*
-let userPromise = new Promise((resolve, reject) => {
-    let Http = new XMLHttpRequest();
-    Http.open('GET', url);
-    Http.send();
-    Http.onreadystatechange = () => {
-        if (Http.readyState == XMLHttpRequest.DONE && Http.status == 200) {
-            resolve(JSON.parse(Http.responseText));
-        } else if (Http.readyState == XMLHttpRequest.DONE) {
-            reject('algo esta mal');
-        }
-    };
-});
-
-userPromise. 
-then(response => {
-    console.log(response);
-    user.innerHTML = "<strong>" + response.usuario + "</strong> envia saludos";
-}).
-catch((error) => {
-    alert(error);
-});
-
-
-
-let userPromise = fetch(url);
-
-userPromise.then(response => {
-    return response.json();
-}).then(username => {
-    console.log(username);
-    user.innerHTML = "<strong>" + username.usuario + "</strong> envia saludos";
-}).catch(error => {
-    alert(error);
-
-});
-
-*/

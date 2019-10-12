@@ -3,9 +3,6 @@ const router = express.Router();
 router.use(express.json());
 const path = require('path');
 
-var multer = require('multer')({
-    dest: 'public/archivos'
- }) 
 
 //utilizaremos router para las rutas ya no app
 router.get('/', (req, res) => {
@@ -16,16 +13,19 @@ router.get('/diagrama', (req, res) => {
     res.render('diagrama', { max: 15 });
 });
 
+router.get('/resultado', (req, res) => {
+    res.render('resultado', { max: 15 });
+});
+
+router.get('/leer', (req, res) => {
+    res.post('../public/leer.js', { max: 15 });
+});
+
 router.get('/postdata', (req, res) => {
     console.log("recibio");
     let data = req.query.format;
     console.log(data);
 });
-
-router.post('/lectura', [multer.single('archivo')], function (req, res, next) {
-    res.render('resultado.ejs')
-})
-
 
 router.post('/postusers', (req, res) => {
     console.log("recibo usuario");
