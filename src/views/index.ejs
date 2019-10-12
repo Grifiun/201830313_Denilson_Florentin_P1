@@ -6,45 +6,37 @@
 </head>
 <body>
     <% include bloque/nav.html%> 
-    <!--#include file="html/nav.html" -->
+    <!-- Creamos la divicion principal -->    
     <div class="modal-content col-xl-7 text-center">
+        <!---Escribimos los titulos-->
         <h3>ANALIZADOR</h3><br></br>
         <h4>Suba el archivo</h4>
         <div class="modal-content align-content-start"> 
         <div class="caja3">
-            <input type="file" id="file-input" />
+            <input type="file" accept=".txt" id="file-input" />
         </div>
-            <pre id="contenido-archivo"></pre>  
+            <pre id="contenido-archivo" name="contenido-archivo"></pre>  
 
-            <script>
-                function leerArchivo(e) {
-                    var archivo = e.target.files[0];
-                    if (!archivo) {
-                    return;
-                    }
-                    var lector = new FileReader();
-                    lector.onload = function(e) {
-                    var contenido = e.target.result;
-                    mostrarContenido(contenido);
-                    };
-                    lector.readAsText(archivo);
-                }
-                
-                function mostrarContenido(contenido) {
-                    var elemento = document.getElementById('contenido-archivo');
-                    elemento.innerHTML = contenido;
-                }
-                
-                document.getElementById('file-input')
-                    .addEventListener('change', leerArchivo, false);
-            </script>
+            <!-- Cargamos el script donde se encuentra el codigo html para cargar el input fyle
+                donde tambien cargaremos el contenido en el contenedor 'contenido-archivo'--->
+            <script src="./subir-archivo-texto.js" type="text/javascript"></script> 
             </div>
-            <button onclick="reconocer()" type="button">Reconocer</button>
-            <pre id="contenido-archivo2"></pre>
-        </div>
+            <!-- Lo mandamos al Backend-->
+            <button type="button" name="btnReconocer" id="btnReconocer">Reconocer</button>
+
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="./enviar-archivo-back.js" type="text/javascript"></script>
+
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
         
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./public/leer" type="text/javascript"></script>
+            <pre id="contenido-archivo2"></pre>
+        </div>        
+        
+    <!--script src="./leer.js" type="text/javascript"></script-->
 </body>
 
 </html>
