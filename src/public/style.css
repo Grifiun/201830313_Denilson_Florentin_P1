@@ -24,3 +24,7 @@ table{
 .caja3{
    text-align: center;
 }
+
+ul{
+   display: inline-block;    
+}

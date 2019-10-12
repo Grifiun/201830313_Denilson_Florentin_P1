@@ -16,16 +16,35 @@
             <div class="caja3">
                 <input type="file" accept=".txt" id="file-input" />
             </div>
-            <pre id="contenido-archivo" name="contenido-archivo"></pre>  
-
+            <!--
+                <pre id="contenido-archivo" name="contenido-archivo"></pre>  
+            -->
+            <textarea name="contenido-archivo" id="contenido-archivo" cols="40" rows="20" disabled="true">
+  
+            </textarea>
             <!-- Cargamos el script donde se encuentra el codigo html para cargar el input fyle
                 donde tambien cargaremos el contenido en el contenedor 'contenido-archivo'--->
             <script src="./subir-archivo-texto.js" type="text/javascript"></script> 
             </div>
             <!-- Lo mandamos al Backend-->
             <button onclick="verificar()" type="button" name="btnReconocer" id="btnReconocer">Reconocer</button>
-            <!--<button type="button" name="btnReconocer2" id="btnReconocer2">Evaluar</button>-->            
-            <pre id="contenido-archivo2" name="contenido-archivo2"></pre>
+            <!--<button type="button" name="btnReconocer2" id="btnReconocer2">Evaluar</button>--> 
+            <div class="contenedor2">
+                <ul>No. fila
+                    <div id="fila" class="elementos"></div>
+                </ul>
+                <ul>No. columna
+                    <div id="columna" class="elementos"></div>
+                </ul>
+                <ul>cadena
+                    <div id="cadena" class="elementos"></div>
+                </ul>
+                <ul>tipo
+                    <div id="tipo" class="elementos"></div>
+                </ul>                
+            </div>
+
+
             <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <!--<script src="./analizador.js"></script> -->
             <!--<script src="./enviar-archivo-back.js"></script>-->
