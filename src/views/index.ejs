@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <title>Subir archivo</title>
     <% include bloque/head.html%>
 </head>
-
 <body>
+    <% include bloque/nav.html%> 
+    <!--#include file="html/nav.html" -->
+    <div class="modal-content col-xl-7 text-center">
+        <h3>ANALIZADOR</h3><br></br>
+        <h4>Suba el archivo</h4>
+        <div class="modal-content align-content-start">        
+            <form class="col-12 caja2" enctype="multipart/form-data" method="post" action="" >             
+                <div class="form-group align-self-start">
+                    <h5>Nombre de la revista</h5>
+                    <input type="file" accept=".txt" class="form-control" name="archivopdf"/>
+                </div>
+                <button type="submit" class="btn btn-dark">Leer archivo</button>
+            </form>
+            </div>
+        </div>
 
-
-
-
-    <% include bloque/nav.html%>
-
-
-
-        <ul>
-            <% for (let i = 0; i<max ; i++){ %>
-                <li>
-                    <%= i %>
-                </li>
-                <%}%>
-        </ul>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

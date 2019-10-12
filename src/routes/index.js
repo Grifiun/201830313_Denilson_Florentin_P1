@@ -8,16 +8,14 @@ router.get('/', (req, res) => {
     res.render('index', { max: 15 });
 });
 
-router.get('/totito', (req, res) => {
-    res.render('totito', { max: 15 });
+router.get('/diagrama', (req, res) => {
+    res.render('diagrama', { max: 15 });
 });
 
 router.get('/postdata', (req, res) => {
     console.log("recibio");
     let data = req.query.format;
     console.log(data);
-
-
 });
 
 router.post('/postusers', (req, res) => {
@@ -36,19 +34,14 @@ router.get('/users', (req, res) => {
 
     setTimeout(() => {
         res.status(400).json({
-            usurio: 'oliver',
-            id: '4',
-            carne: '202'
+            variable: 23
         });
     }, 4500);
-    /*
-        setTimeout(() => {
-            res.status(200).json({ usuario: 'oliver sierra' });
-        }, 3500);*/
+    
 });
 
-router.get('/hola', (req, res) => {
-    res.render('saludo', { max: 15 });
+router.get('/datos', (req, res) => {
+    res.render('datos', { max: 15 });
     //res.sendFile(path.join(__dirname,'/views/saludo.html'));
     //res.sendFile(path.join(__dirname,'../views/saludo.html'));
 });
