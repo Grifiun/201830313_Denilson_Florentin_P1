@@ -1,13 +1,13 @@
 {
-  "name": "ejemploclase",
+  "name": "201830313",
   "version": "0.0.1",
-  "description": "ejemplo de node js",
+  "description": "Analizador",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src",
     "start": "node src"
   },
-  "author": "Oliver",
+  "author": "Grifiun",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",

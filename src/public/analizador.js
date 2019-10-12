@@ -2,25 +2,18 @@
 //Y la otra encargada de realizar el evento en caso de ser presionado
 const respuesta = document.querySelector('#contenido-archivo');
 const boton = document.querySelector('#btnReconocer');
-const urlp = "http://localhost:3000/analizador";
+const url = "http://172.16.6.136:3000/users";
 
 // Enviar el analizador con Axios
-const sendData = () => {
-    console.log('funcional');
-    axios.post('http://172.16.6.136:3000/postusers', {
-            text: respuesta.value            
-        }, {
-            'Content-Type': 'application/json'
-        })
-        .then(response => {
-            console.log(response);
+const getData = () => {
+    axios.get(url).then(response => {
+            console.log(response.data);
         })
         .catch(error => {
-            console.log('ERROR');
             console.log(error);
         });
-
 };
+
 
 //Agregamos el accion al boton cuando sea presionado
 document.getElementById('btnReconocer')
